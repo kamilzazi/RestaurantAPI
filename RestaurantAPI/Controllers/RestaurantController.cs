@@ -37,7 +37,7 @@ namespace RestaurantAPI.Controllers
         {
             var restaurants = _dbContext
                 .Restaurants
-                .Include(r => r.Address)
+                //.Include(r => r.Address)
                 .Include(r => r.Dishes)
                 .ToList();
 
@@ -51,7 +51,7 @@ namespace RestaurantAPI.Controllers
         {
             var restaurant = _dbContext
                 .Restaurants
-                .Include(r => r.Address)
+                //.Include(r => r.Address)
                 .Include(r => r.Dishes)
                 .FirstOrDefault(r => r.Id == id);
 

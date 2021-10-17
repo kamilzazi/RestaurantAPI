@@ -11,7 +11,7 @@ namespace RestaurantAPI.Entities
         //private string _connectionString = "Server=(localdb)\\mssqllocaldb;Database=RestaurantDb;Trusted_Connection=True;";
         private string _connectionString = "Server=KAMILZAZULA\\SQLEXPRESS;Database=RestaurantDb;Trusted_Connection=True;";
         public DbSet<Restaurant> Restaurants { get; set; }
-        public DbSet<Address> Addresses { get; set; }
+        //public DbSet<Address> Addresses { get; set; }
         public DbSet<Dish> Dishes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,14 +32,14 @@ namespace RestaurantAPI.Entities
                 .Property(r => r.Name)
                 .IsRequired();
 
-            modelBuilder.Entity<Address>()
-                .Property(r => r.City)
-                .IsRequired()
-                .HasMaxLength(50);
-            modelBuilder.Entity<Address>()
-                .Property(r => r.Street)
-                .IsRequired()
-                .HasMaxLength(50);
+            //modelBuilder.Entity<Address>()
+            //    .Property(r => r.City)
+            //    .IsRequired()
+            //    .HasMaxLength(50);
+            //modelBuilder.Entity<Address>()
+            //    .Property(r => r.Street)
+            //    .IsRequired()
+            //    .HasMaxLength(50);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

@@ -52,12 +52,12 @@ namespace RestaurantAPI
                             Price = 5.30M,
                         }
                     },
-                    Address = new Address()
-                    {
-                        City = "Kraków",
-                        Street = "Długa 5",
-                        PostalCode = "30-001"
-                    }
+                    //Address = new Address()
+                    //{
+                    //    City = "Kraków",
+                    //    Street = "Długa 5",
+                    //    PostalCode = "30-001"
+                    //}
                 },
                 new Restaurant()
                 {
@@ -66,12 +66,12 @@ namespace RestaurantAPI
                     Description = "McDonald's Corporation (mcDonald's), incorporated on December 21, 1964.",
                     ContactEmail = "contact@mcdonald.com",
                     HasDelivery = true,
-                    Address = new Address()
-                    {
-                        City = "kraków",
-                        Street = "szewska 2",
-                        PostalCode = "30-001"
-                    }
+                    //Address = new Address()
+                    //{
+                    //    City = "kraków",
+                    //    Street = "szewska 2",
+                    //    PostalCode = "30-001"
+                    //}
                 }
             };
             return restaurants;
