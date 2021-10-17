@@ -9,8 +9,8 @@ using RestaurantAPI.Entities;
 namespace RestaurantAPI.Migrations
 {
     [DbContext(typeof(RestaurantDbContext))]
-    [Migration("20211017085146_InitMigrationWithAddress2")]
-    partial class InitMigrationWithAddress2
+    [Migration("20211017091653_DatabaseWithoutAddress")]
+    partial class DatabaseWithoutAddress
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -19,34 +19,6 @@ namespace RestaurantAPI.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("RestaurantAPI.Entities.Address", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("PostalCode")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("RestaurantId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Street")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Addresses");
-                });
 
             modelBuilder.Entity("RestaurantAPI.Entities.Dish", b =>
                 {
@@ -82,9 +54,6 @@ namespace RestaurantAPI.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("AddressId")
-                        .HasColumnType("int");
-
                     b.Property<string>("Category")
                         .HasColumnType("nvarchar(max)");
 
@@ -107,9 +76,6 @@ namespace RestaurantAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AddressId")
-                        .IsUnique();
-
                     b.ToTable("Restaurants");
                 });
 
@@ -121,22 +87,6 @@ namespace RestaurantAPI.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Restaurant");
-                });
-
-            modelBuilder.Entity("RestaurantAPI.Entities.Restaurant", b =>
-                {
-                    b.HasOne("RestaurantAPI.Entities.Address", "Address")
-                        .WithOne("Restaurant")
-                        .HasForeignKey("RestaurantAPI.Entities.Restaurant", "AddressId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Address");
-                });
-
-            modelBuilder.Entity("RestaurantAPI.Entities.Address", b =>
-                {
                     b.Navigation("Restaurant");
                 });
 

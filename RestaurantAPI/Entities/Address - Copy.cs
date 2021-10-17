@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RestaurantAPI.Entities
 {
-    public class Address
+    public class AddressCopy //było: Address
     {
         public int Id { get; set; }
         public string City { get; set; }
